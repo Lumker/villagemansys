@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+
+
+<div class="card mx-auto" style="width: 24rem;">
+          <h3>Resident Detail</h3>  
+    <img src="{{ resident.photo.url }}" alt="{{ resident.name }} Image">
+    <div class="card-body">
+      <table>
+        <tr>
+            <td>Name : </td> 
+            <td><strong>{{ resident.name }} {{ resident.surname }}</td>
+        </tr>
+        <tr>
+            <td>ID No. : </td>
+            <td><strong>{{resident.id_no}}</td>
+        </tr>
+        <tr>
+            <td>Gender: </td>
+            <td><strong>{{resident.get_gender_display}}</td>
+        </tr>
+        <tr>
+            <td>Address </td>
+            <td><strong>{{resident.household.address }}</td>
+        </tr>
+        <tr>
+            <td>Village :</td>
+            <td><strong>{{resident.household.village.name}} Village</td>
+        </tr>
+        <tr>
+            <td>Municipality: </td>
+            <td><strong>{{resident.household.village.town.name}}</td>
+        </tr>
+        <tr>
+            <td>Has Electricity: </td>
+            <td><strong>{{resident.household.has_electricity}}</td>
+        </tr>
+        <tr>
+            <td>Has Water: </td>
+            <td><strong>{{resident.household.has_water}}</td>
+        </tr>
+      </table>
+    
+</div>
+    <a href="{% url 'resident_list' %}" class="btn btn-primary">Back</a>
+</div>
+  
+</div>
+{% endblock content %}

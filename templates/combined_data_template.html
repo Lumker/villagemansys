@@ -1,0 +1,43 @@
+<!-- combined_data_template.html -->
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combined Data</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Combined Data</h1>
+    <table class="table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Village</th>
+                <th>Municipality</th>
+                <th>District</th>
+                <th>Has Electricity</th>
+                <th>Has Water</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resident in residents %}
+                <tr>
+                    <td>{{ resident.name }}</td>
+                    <td>{{ resident.surname }}</td>
+                    <td>{{ resident.get_gender_display }}</td>
+                    <td>{{ resident.household.address }}</td>
+                    <td>{{ resident.household.village.name }}</td>
+                    <td>{{ resident.household.village.town.name }}</td>
+                    <td>{{ resident.household.village.town.district.name }}</td>
+                    <td>{{ resident.household.has_electricity }}</td>
+                    <td>{{ resident.household.has_water }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %}
+</body>
+</html>

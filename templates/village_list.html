@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Villages</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Municipality</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for village in villages %}
+                <tr>
+                    <td>{{ village.name  }} </td>
+                    {% for municipality in municipalities %}
+                    <td>{{ municipality.name }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock content %}

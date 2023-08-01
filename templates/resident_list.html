@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- resident_list.html -->
+
+<div class="container">
+<h3>Resident List</h3>
+<div class="row">
+    <div class="col md-8">
+        <table class="table-sm">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Address</th>
+                <th>Village</th>
+            </tr>
+        </thead>
+            <tbody>
+                {% for resident in residents %}
+                    <tr>
+                        <td><strong><a href=" {% url 'details' resident.id %} ">{{ resident.name }} {{ resident.surname }}</a></strong></td>
+                        <td>{{ resident.get_gender_display }}</td>
+                        <td>{{ resident.household.address }}</td>
+                        <td>{{ resident.household.village.name }} Village</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    
+</div>
+      
+    </div>
+{% endblock content %}

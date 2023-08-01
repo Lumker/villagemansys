@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="nav flex-column nav-pills bg-light" aria-orientation='vertical'>
+            <a href=" {% url 'district_list' %} " class="nav-link text-dark bg-warning">Dashboard</a>
+            <a href="{% url 'resident_list' %}" class="nav-link text-dark">Residents</a>
+            <a href="{% url 'district_list' %}" class="nav-link text-dark">District Municipalities</a>
+            <a href=" {% url 'municipality_list' %} " class="nav-link text-dark">Local Municipalities</a>
+            <a href="{% url 'village_list' %}" class="nav-link text-dark">Villages</a>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col">
+                <div class="card border-default mb-3">
+                    <div class="card-header text-center text-uppercase font-weight-bold">All Districts</div>
+                    <div class="card-body text-dark">
+                        <h5 class="card-title text-center">{{district_count}} <br>Total Number Captured</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card border-default mb-3">
+                    <div class="card-header text-center text-uppercase font-weight-bold">All Municipalities</div>
+                    <div class="card-body text-dark">
+                        <h5 class="card-title text-center">{{municipality_count}}<br>Total Number Captured</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
